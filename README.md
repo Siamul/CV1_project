@@ -1,5 +1,8 @@
 # CV1_project
 
+All of the coding is done using the Pytorch framework.
+To install the dependencies, run "pip install -r requirements.txt"
+
 The GAN weights are available at: https://drive.google.com/drive/folders/1Iba4gpeaZOpfLafBIG9wHGtCR2E12FUC?usp=sharing
 
 The real/fake dataset is available at: https://drive.google.com/drive/folders/1-27B8y0Cp320I0Uqi_ak7mZvMRyKkyfD?usp=sharing
