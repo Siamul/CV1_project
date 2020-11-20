@@ -84,12 +84,13 @@ print("Started finetuning.")
 prev_valid_acc = 0
 for epoch in range(epoch_num):  # loop over the dataset multiple times
     current_valid_acc = check_accuracy(validloader, net)
-    print('Epoch: '+str(epoch)+ ' Valid accuracy: '+str(current_valid_acc))
+    print('Epoch: '+str(epoch)+ 'Train accuracy: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
     if current_valid_acc > prev_valid_acc:
         best_finetuned_weight =  'finetuned_'+str(round(current_valid_acc, 5))+'.pth'
         torch.save(net.state_dict(), best_finetuned_weight)
         prev_valid_acc = current_valid_acc
     running_loss = 0.0
+    count = 0
     for i, data in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
@@ -107,10 +108,7 @@ for epoch in range(epoch_num):  # loop over the dataset multiple times
 
         # print statistics
         running_loss += loss.item()
-        if i % 2000 == 1999:    # print every 2000 mini-batches
-            print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
-            running_loss = 0.0
+        count += 1
 
 print('Finished finetuning')
 
@@ -134,13 +132,13 @@ net.train()
 prev_valid_acc = 0
 for epoch in range(epoch_num):  # loop over the dataset multiple times
     current_valid_acc = check_accuracy(validloader, net)
-    print('Epoch: '+str(epoch)+ ' Valid accuracy: '+str(current_valid_acc))
+    print('Epoch: '+str(epoch)+ 'Train accuracy: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
     if current_valid_acc > prev_valid_acc:
         best_scratch_weight =  'scratch_'+str(round(current_valid_acc, 5))+'.pth'
         torch.save(net.state_dict(), best_scratch_weight)
         prev_valid_acc = current_valid_acc
     running_loss = 0.0
-
+    count = 0
     for i, data in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
@@ -158,10 +156,7 @@ for epoch in range(epoch_num):  # loop over the dataset multiple times
 
         # print statistics
         running_loss += loss.item()
-        if i % 2000 == 1999:    # print every 2000 mini-batches
-            print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
-            running_loss = 0.0
+        count += 1
 
 print("Finished training from scratch.")
 
