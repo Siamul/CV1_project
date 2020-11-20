@@ -75,7 +75,7 @@ def check_accuracy(loader, model):
     model.train()
     return float(correct/total)
 
-'''
+
 nofinetune = check_accuracy(testloader, net)
 print("Discriminator test set accuracy without finetuning: " + str(check_accuracy(testloader, net)))
 
@@ -118,7 +118,7 @@ net.load_state_dict(torch.load(best_finetuned_weight))
 
 finetune = check_accuracy(testloader, net)
 print('Discriminator test set accuracy after finetuning:' + str(check_accuracy(testloader, net)))
-'''
+
 print('Starting from scratch')
 
 from models import weights_init
@@ -168,5 +168,5 @@ print("Finished training from scratch.")
 net.load_state_dict(torch.load(best_scratch_weight))
 
 print("Discriminator test set accuracy when trained from scratch: "+str(check_accuracy(testloader, net)))
-#print("Discriminator test set accuracy after finetuning : "+str(finetune))
-#print("Discriminator test set accuracy no finetuning: "+str(nofinetune))
+print("Discriminator test set accuracy after finetuning : "+str(finetune))
+print("Discriminator test set accuracy no finetuning: "+str(nofinetune))
