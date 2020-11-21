@@ -1,4 +1,6 @@
-# This repository contains the codes of my course project for CSE 40535/60535 Computer Vision I at the University of Notre Dame.
+# Course Project for CSE 40535/60535 Computer Vision I
+
+This repository contains the codes of my course project for CSE 40535/60535 Computer Vision I at the University of Notre Dame.
 
 All of the coding is done using the Pytorch framework.
 To install the dependencies, run "pip install -r requirements.txt"
