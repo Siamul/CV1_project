@@ -11,4 +11,4 @@ Download the GAN weights and real/fake dataset.
 
 Run "python generate_images.py <generator_weight_location>" to generate images using the generator.
 
-Run "python check_generator.py" to evaluate the generator. You have to provide the appropriate location for the real/fake dataset in the code.
+Run "python check_discriminator.py" to evaluate the discriminator. You have to provide the appropriate location for the real/fake dataset in the code.
