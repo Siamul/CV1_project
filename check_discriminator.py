@@ -54,7 +54,7 @@ optimizer = optim.Adam(net.parameters(), lr=0.0002, betas=(0.5, 0.999))
 
 criterion = nn.BCELoss()
 
-epoch_num = 150
+epoch_num = 20
 
 def check_accuracy(loader, model):
     num_correct = 0
