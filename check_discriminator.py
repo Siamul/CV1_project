@@ -105,7 +105,7 @@ for epoch in range(epoch_num):  # loop over the dataset multiple times
         running_loss += loss.item()
         count += 1
     current_valid_acc = check_accuracy(validloader, net)
-    print('Epoch: '+str(epoch)+ 'Train accuracy: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
+    print('Epoch: '+str(epoch)+ ' Train loss: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
     if current_valid_acc > prev_valid_acc:
         best_finetuned_weight =  'finetuned_'+str(round(current_valid_acc, 5))+'.pth'
         torch.save(net.state_dict(), best_finetuned_weight)
@@ -153,7 +153,7 @@ for epoch in range(epoch_num):  # loop over the dataset multiple times
         running_loss += loss.item()
         count += 1
     current_valid_acc = check_accuracy(validloader, net)
-    print('Epoch: '+str(epoch)+ 'Train accuracy: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
+    print('Epoch: '+str(epoch)+ ' Train loss: ' + str(running_loss/count) +' Valid accuracy: '+str(current_valid_acc))
     if current_valid_acc > prev_valid_acc:
         best_scratch_weight =  'scratch_'+str(round(current_valid_acc, 5))+'.pth'
         torch.save(net.state_dict(), best_scratch_weight)
