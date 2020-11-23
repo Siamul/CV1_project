@@ -78,7 +78,7 @@ def check_accuracy(loader, model):
 
 
 nofinetune = check_accuracy(testloader, net)
-print("Discriminator test set accuracy without finetuning: " + str(check_accuracy(testloader, net)))
+print("Discriminator test set accuracy without finetuning: " + str(nofinetune))
 
 print("Started finetuning.")
 
