@@ -3,12 +3,13 @@ import torch
 import torchvision
 from torch import nn
 from torchvision import transforms
+import sys
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 net = Discriminator(1).to(device)
-net.load_state_dict(torch.load('discriminator_weights_final0.pth'))
+net.load_state_dict(torch.load(sys.argv[1]))
 
 i = 0
 for param in net.named_parameters():
