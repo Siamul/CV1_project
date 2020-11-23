@@ -92,23 +92,23 @@ G_losses = []
 D_losses = []
 iters = 0
 
-num_epochs = 2000
+num_epochs = 3000
 
 #mode collapse prevention parameters
 
 #label noise (randomly flip labels for real data upto label_noise_epochs)
 label_noise = True
 label_noise_prob = 0.3
-label_noise_epochs = 1200
+label_noise_epochs = 0.5*num_epochs
 
 #label smoothing (1 set between 1-x and 1+x, 0 set between 0 and 0+y)
 label_smoothing = False
 x = 0.3
-label_smoothing_epochs = 1200
+label_smoothing_epochs = 0.5*num_epochs
 
 #instance noise (additive Gaussian Noise to the inputs of the discriminator with annealing upto instance_noise_epochs)
 instance_noise = False
-instance_noise_epochs = 1200
+instance_noise_epochs = 0.5*num_epochs
 start_variance = 0.1
 
 print("Starting Training Loop...")
