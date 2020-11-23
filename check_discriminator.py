@@ -33,7 +33,7 @@ data_transform = transforms.Compose([
         transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
     ])
 
-data_dir = '~/driveg/transferredDataset/'
+data_dir = './transferredDataset/'
 
 dataset = torchvision.datasets.ImageFolder(root = data_dir, transform = data_transform)
 print(len(dataset))
